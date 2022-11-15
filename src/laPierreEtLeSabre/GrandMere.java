@@ -50,5 +50,12 @@ public class GrandMere extends Humain {
 
 	
 	
-
+    public void faireConnaissanceAvec(Humain humain) {
+    	Humain[] memoire = getMemoire();
+    	direBonjour();
+    	humain.direBonjour();
+        memoire[getnbConaissance()]=humain;
+        nbConaissance++;
+        
+    }
 }
