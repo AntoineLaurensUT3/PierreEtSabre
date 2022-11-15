@@ -10,7 +10,7 @@ package laPierreEtLeSabre;
 public class Humain {
 	
 	private Humain [] memoire = new Humain [30]; 
-	private int nbConaissance=0;
+	protected int nbConnaissance=0;
 	private int argent;
 	private String nom;
 	private String boisson;
@@ -27,7 +27,7 @@ public class Humain {
 		this.boisson = boisson;
 	}
 
-	public void parler(String texte) {
+	protected void parler(String texte) {
 		
 		System.out.println(nom+"- "+texte);
 		
@@ -56,8 +56,8 @@ public class Humain {
 		return boisson;
 	}
 	
-	public int getnbConaissance() {
-		return nbConaissance;
+	public int getnbConnaissance() {
+		return nbConnaissance;
 		
 	}
 	
@@ -65,26 +65,36 @@ public class Humain {
 		return memoire;
 	}
 	
-	public void ajouterArgent(int i) {
+	protected void ajouterArgent(int i) {
 		argent+=i;
 		
 	}
 	
-	public void perdreArgent(int i) {
+	protected void perdreArgent(int i) {
 		argent-=i;
-		
-		
 	}
 	
 	public void acheter(String bien, int prix) {
 		perdreArgent(prix);
 	}
 	
+	protected void memoriser(Humain humain) {
+        memoire[nbConnaissance]=humain;
+        nbConnaissance++;	
+	}
+	
+	private void repondre(Humain humain) {
+		humain.direBonjour();
+		humain.memoriser(this);
+	}
     public void faireConnaissanceAvec(Humain humain) {
     	direBonjour();
-    	humain.direBonjour();
-        memoire[nbConaissance]=humain;
-        nbConaissance++;
+    	memoriser(humain);
+    	repondre(humain);
         
     }
+
+	public void setNbConnaissance(int nbConnaissance) {
+		this.nbConnaissance = nbConnaissance;
+	}
 }

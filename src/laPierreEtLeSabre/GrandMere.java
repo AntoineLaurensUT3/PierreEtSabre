@@ -36,8 +36,8 @@ public class GrandMere extends Humain {
 	
 	public void ragoter() {
 		Humain[] memoire = getMemoire();
-        if(getnbConaissance()>0){
-            for(int i=0; i<getnbConaissance();i++) {
+        if(getnbConnaissance()>0){
+            for(int i=0; i<getnbConnaissance();i++) {
                 Humain humain = memoire[i];
                 if(humain instanceof Traitre) {
                     parler(humain.getNom()+" est un traitre !");
@@ -48,14 +48,10 @@ public class GrandMere extends Humain {
         }
     }
 
-	
-	
-    public void faireConnaissanceAvec(Humain humain) {
-    	Humain[] memoire = getMemoire();
-    	direBonjour();
-    	humain.direBonjour();
-        memoire[getnbConaissance()]=humain;
-        nbConaissance++;
-        
-    }
-}
+	protected void memoriser(Humain humain) {
+		Humain[] memoire = getMemoire();
+		
+		
+	}
+}	
+

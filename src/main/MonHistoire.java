@@ -57,6 +57,9 @@ public class MonHistoire {
 		mamie.faireConnaissanceAvec(humain);
 		mamie.faireConnaissanceAvec(commercant);
 		mamie.faireConnaissanceAvec(traitre);
+		mamie.faireConnaissanceAvec(samourai);
+		mamie.faireConnaissanceAvec(ronin);
+		mamie.faireConnaissanceAvec(yakusa);
 		mamie.ragoter();
 		
 	}
